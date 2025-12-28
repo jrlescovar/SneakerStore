@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nome da Loja Aqui</title>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+
+    <div id="top"></div>
+
+    <header class="main-header">
+
+    <div class="header-left">
+      <button class="icon-button menu-button" type="button">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+
+      <button class="icon-button header-cart-button" type="button">
+        <span class="material-symbols-outlined">shopping_cart</span>
+      </button>
+    </div>
+
+
+    <div class="logo">
+        <a class="logo-link" href="index.html#top" aria-label="Voltar ao topo">
+          <span class="logo-text">Nome da Loja Aqui</span>
+        </a>
+    </div>
+
+    <div class="header-icons header-right">
+        <button class="icon-button" id="profile-button">
+            <span class="material-symbols-outlined">person</span>
+        </button>
+    </div>
+
+    <aside class="side-menu">
+      <div class="side-profile">
+        <div class="side-profile-avatar" id="side-profile-avatar">
+          <span class="material-symbols-outlined">person</span>
+          <img id="side-profile-avatar-img" alt="Foto do usuário" />
+        </div>
+        <div class="side-profile-text">
+          <p class="side-profile-greeting" id="side-profile-greeting">
+            Olá, visitante
+          </p>
+          <button class="side-profile-action" id="side-profile-action">
+            Entrar ou cadastrar
+          </button>
+        </div>
+      </div>
+      
+      <div class="side-section">
+        <p class="side-section-title">Categorias</p>
+        <ul class="side-menu-list">
+          <li>
+            <a href="#" class="side-menu-filter" data-filter="ALL">
+              Tênis - Todos
+            </a>
+          </li>
+          <li>
+              <a href="#" class="side-menu-filter" data-filter="HOMEM">
+              Homem
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-filter" data-filter="MULHER">
+              Mulher
+            </a>
+          </li>
+           <li>
+            <a href="#" class="side-menu-filter" data-filter="FAVORITOS">
+              Favoritos
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="side-section">
+        <p class="side-section-title">Modelos</p>
+        <ul class="side-menu-list">
+          <li>
+            <a href="#" class="side-menu-style" data-style="ALL">
+              Todos-Modelos
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-style" data-style="CASUAL">
+              Casual
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-style" data-style="TREINO">
+              Academia
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-style" data-style="CORRIDA">
+              Corrida
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="side-section admin-section" id="admin-section">
+        <p class="side-section-title">Painel do admin</p>
+        <ul class="side-menu-list">
+            <li><a href="admin.html">Editar tênis</a></li>
+        </ul>
+    </div>
+
+
+      <div class="side-section">
+        <p class="side-section-title">Central de atendimento</p>
+        <ul class="side-menu-list">
+          <li><a
+            target="_blank"
+            rel="noopener">
+            Fale conosco
+          </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+
+    <div class="menu-overlay"></div>
+    </header>
+
+
+  <main>
+  <section class="hero">
+    <div class="hero-image">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tag">TEMPORADA DE PRESENTES</p>
+        <h1 class="hero-title">O MELHOR DE NÓS</h1>
+        <p class="hero-subtitle">
+          O Tênis ideal para cada estilo e paixão, você vai encontrar aqui.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="products-header">
+
+    <div class="products-header-block">
+      <p class="products-header-title">Categorias</p>
+      <div class="products-tabs">
+        <button class="products-tab products-tab--active" data-filter="ALL">Todos</button>
+        <button class="products-tab" data-filter="HOMEM">Homem</button>
+        <button class="products-tab" data-filter="MULHER">Mulher</button>
+        <button class="products-tab" data-filter="FAVORITOS">Favoritos</button>
+      </div>
+    </div>
+
+    <div class="products-header-block">
+      <p class="products-header-title">Modelos</p>
+      <div class="products-subfilters">
+        <button class="products-subfilter products-subfilter--active" data-style="ALL">
+          Todos
+        </button>
+        <button class="products-subfilter" data-style="CASUAL">
+          Casual
+        </button>
+        <button class="products-subfilter" data-style="TREINO">
+          Academia
+        </button>
+        <button class="products-subfilter" data-style="CORRIDA">
+          Corrida
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="products-grid">
+  </div>
+
+  <div class="products-pagination">
+    <button class="pagination-btn pagination-prev">ANTERIOR</button>
+
+    <div class="pagination-center">
+      <span class="pagination-label">Página 1 de 1</span>
+      <div class="pagination-bar">
+        <div class="pagination-bar-fill"></div>
+      </div>
+    </div>
+
+    <button class="pagination-btn pagination-next">PRÓXIMO</button>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-social">
+        <span class="footer-title">Redes sociais:</span>
+
+        <a
+          href="https://instagram.com/jrlescovar"
+          class="footer-instagram"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram do jrlescovar"
+        >
+          <svg
+            class="footer-instagram-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="5" />
+            <circle cx="17.3" cy="6.7" r="1.2" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="footer-copy">
+        © 2025 jrlescovar | desenvolvimento academico
+      </p>
+    </div>
+  </footer>
+   <script type="module" src="js/app.js"></script>
+   <script type="module" src="js/auth.js"></script>
+</body>
+</html>
+

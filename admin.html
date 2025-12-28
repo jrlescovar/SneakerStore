@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nome da loja aqui - Painel do Admin</title>
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <a href="index.html" class="admin-back-link">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Voltar para a loja
+      </a>
+    </div>
+    <div class="admin-header-center">
+      <h1>Painel do Admin</h1>
+      <p>Gerencie os tênis do catálogo</p>
+    </div>
+    <div class="admin-header-right">
+      <span id="admin-user-label">Carregando...</span>
+      <button id="admin-logout-btn" class="admin-secondary-btn">
+        Sair
+      </button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-form-section">
+      <div class="admin-form-header">
+        <h2 id="form-title">Adicionar novo tênis</h2>
+        <button id="new-shoe-btn" class="admin-secondary-btn">
+          + Novo tênis
+        </button>
+      </div>
+
+      <form id="shoe-form" class="admin-form">
+        <input type="hidden" id="shoe-id" />
+
+        <div class="admin-form-row">
+          <label for="nome">Nome do tênis</label>
+          <input type="text" id="nome" required />
+        </div>
+        <div class="admin-form-row">
+          <label for="prioridade">Prioridade (1 = aparece primeiro)</label>
+          <input type="number" id="prioridade" min="1" step="1" value="1" />
+        </div>
+        <div class="admin-form-grid">
+          <div class="admin-form-row">
+            <label for="valorOriginal">Valor original</label>
+            <input type="number" id="valorOriginal" step="0.01" min="0" />
+          </div>
+          <div class="admin-form-row">
+            <label for="valorPromocao">Valor promoção</label>
+            <input type="number" id="valorPromocao" step="0.01" min="0" />
+          </div>
+        </div>
+
+        <div class="admin-form-grid">
+          <div class="admin-form-row">
+            <label for="categoria">Categoria</label>
+            <select id="categoria">
+              <option value="HOMEM">Homem</option>
+              <option value="MULHER">Mulher</option>
+              <option value="UNISSEX">Unissex</option>
+            </select>
+          </div>
+          <div class="admin-form-row">
+            <label for="preDescricao">Pré descrição</label>
+            <select id="preDescricao">
+            <option value="Casual">Casual</option>
+            <option value="Treino & Academia">Treino & Academia</option>
+            <option value="Corrida">Corrida</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="admin-form-row">
+          <label>Fotos (URLs) – por enquanto só texto</label>
+          <div class="admin-form-grid">
+            <input type="text" id="foto1" placeholder="Foto 1" />
+            <input type="text" id="foto2" placeholder="Foto 2" />
+          </div>
+          <div class="admin-form-grid">
+            <input type="text" id="foto3" placeholder="Foto 3" />
+            <input type="text" id="foto4" placeholder="Foto 4" />
+          </div>
+        </div>
+
+        <fieldset class="admin-form-row admin-sizes-fieldset">
+          <legend>Estoque por tamanho</legend>
+          <div class="sizes-grid" id="sizes-grid">
+          </div>
+        </fieldset>
+
+        <div class="admin-form-actions">
+          <button type="submit" class="admin-primary-btn">
+            Salvar
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="admin-list-section">
+      <div class="admin-list-header">
+        <h2>Tênis cadastrados</h2>
+      </div>
+      <div id="shoes-list" class="admin-shoes-list">
+      </div>
+    </section>
+  </main>
+
+  <div id="admin-blocked" class="admin-blocked hidden">
+    <div class="admin-blocked-card">
+      <h2>Acesso restrito</h2>
+      <p>Você precisa estar logado como admin para acessar esta página.</p>
+      <button id="admin-go-login" class="admin-primary-btn">
+        Ir para a loja e fazer login
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

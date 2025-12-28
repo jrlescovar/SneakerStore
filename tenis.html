@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nome da loja aqui - Detalhe do Tênis</title>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tenis.css" />
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-left">
+      <button class="icon-button menu-button" type="button">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+
+      <button class="icon-button header-cart-button" type="button">
+        <span class="material-symbols-outlined">shopping_cart</span>
+      </button>
+    </div>
+
+    <div class="logo">
+      <a class="logo-link" href="index.html#top" aria-label="Voltar ao topo">
+        <span class="logo-text">Nome da loja aqui</span>
+      </a>
+    </div>
+
+
+    <div class="header-icons header-right">
+      <button class="icon-button" id="profile-button">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    </div>
+
+    <aside class="side-menu">
+      <div class="side-profile">
+        <div class="side-profile-avatar" id="side-profile-avatar">
+          <span class="material-symbols-outlined">person</span>
+          <img id="side-profile-avatar-img" alt="Foto do usuário" />
+        </div>
+        <div class="side-profile-text">
+          <p class="side-profile-greeting" id="side-profile-greeting">
+            Olá, visitante
+          </p>
+          <button class="side-profile-action" id="side-profile-action">
+            Entrar ou cadastrar
+          </button>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <p class="side-section-title">Categorias</p>
+        <ul class="side-menu-list">
+          <li>
+            <a href="#" class="side-menu-filter" data-filter="ALL">
+              Tênis - Todos
+            </a>
+          </li>
+          <li>
+              <a href="#" class="side-menu-filter" data-filter="HOMEM">
+              Homem
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-filter" data-filter="MULHER"></a>
+              Mulher
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="side-section">
+        <p class="side-section-title">Modelos</p>
+        <ul class="side-menu-list">
+          <li>
+            <a href="#" class="side-menu-style" data-style="ALL">
+              Todos-Modelos
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-style" data-style="CASUAL">
+              Casual
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-style" data-style="TREINO">
+              Academia
+            </a>
+          </li>
+          <li>
+            <a href="#" class="side-menu-style" data-style="CORRIDA">
+              Corrida
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="side-section admin-section" id="admin-section">
+        <p class="side-section-title">Painel do admin</p>
+        <ul class="side-menu-list">
+          <li><a href="admin.html">Editar tênis</a></li>
+        </ul>
+      </div>
+
+      <div class="side-section">
+        <p class="side-section-title">Central de atendimento</p>
+        <ul class="side-menu-list">
+           <li><a
+            target="_blank"
+            rel="noopener"
+          >
+            Fale conosco
+          </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="menu-overlay"></div>
+  </header>
+
+  <main class="product-page">
+    <section class="product-main">
+
+      <nav class="product-breadcrumb">
+        <a href="index.html">Página inicial</a>
+        <span>/</span>
+        <span id="breadcrumb-category">Tênis</span>
+      </nav>
+
+      <div class="product-layout">
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img id="produto-img-principal" alt="Tênis DP Shoes" />
+          </div>
+          <div class="product-gallery-thumbs" id="produto-thumbs">
+          </div>
+        </div>
+
+        <div class="product-summary">
+          <p class="product-tag" id="product-tag">Unissex • Casual</p>
+          <h1 class="product-title" id="product-title">Nome do tênis</h1>
+
+          <div class="product-main-prices">
+            <span class="product-price-promo" id="product-price-promo">R$ 0,00</span>
+            <span class="product-price-original" id="product-price-original"></span>
+          </div>
+
+          <p class="product-installments" id="product-installments">
+          </p>
+
+          <a href="index.html" class="product-more-options">
+            Ver outros modelos
+          </a>
+
+          <div class="product-popular-box">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            <p>
+              <strong>Popular!</strong> Muitas pessoas visualizaram este produto no último mês.
+            </p>
+          </div>
+
+          <div class="product-sizes-block">
+            <div class="product-sizes-header">
+              <h2>Tamanhos</h2>
+              <button type="button" class="product-size-guide">
+                Tabela de tamanhos
+              </button>
+            </div>
+
+            <div class="product-sizes-grid" id="product-sizes-grid">
+            </div>
+
+            <div class="product-fit-note">
+              <span class="material-symbols-outlined">info</span>
+              <p>
+                <strong>Atenção!</strong>
+                Recomendamos verifciar a tabela de tamanhos.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-cta-wrapper">
+            <button id="product-cta-button" class="product-cta-button" disabled>
+              Selecione o tamanho
+            </button>
+            <button type="button" class="product-wishlist-button">
+              <span class="material-symbols-outlined">favorite</span>
+            </button>
+          </div>
+
+          <div class="product-extra">
+            <h3>Descrição</h3>
+            <p id="product-description">
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="size-guide-modal" id="size-guide-modal">
+    <div class="size-guide-backdrop" id="size-guide-backdrop"></div>
+    <div class="size-guide-content">
+      <button type="button" class="size-guide-close" id="size-guide-close">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <h2 class="size-guide-title">Tabela de numeração de tênis</h2>
+      <p class="size-guide-subtitle">
+        Use a medida do seu pé (do calcanhar à ponta dos dedos) para encontrar o tamanho ideal.
+      </p>
+
+      <div class="size-guide-table-wrapper">
+        <table class="size-guide-table">
+          <thead>
+            <tr>
+              <th>BR</th>
+              <th>Comprimento (cm)</th>
+              <th>US Masculino</th>
+              <th>US Feminino</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>34</td><td>22,5</td><td>4.5</td><td>5.5</td></tr>
+            <tr><td>35</td><td>23,3</td><td>5</td><td>6</td></tr>
+            <tr><td>36</td><td>23,8</td><td>6</td><td>7</td></tr>
+            <tr><td>37</td><td>24,2</td><td>6.5</td><td>7.5</td></tr>
+            <tr><td>38</td><td>24,6</td><td>7</td><td>8</td></tr>
+            <tr><td>39</td><td>25,0</td><td>7.5</td><td>8.5</td></tr>
+            <tr><td>40</td><td>25,5</td><td>8</td><td>9</td></tr>
+            <tr><td>41</td><td>26,3</td><td>9</td><td>10</td></tr>
+            <tr><td>42</td><td>27,1</td><td>10</td><td>11</td></tr>
+            <tr><td>43</td><td>28,0</td><td>11</td><td>12</td></tr>
+            <tr><td>44</td><td>28,8</td><td>12</td><td>13</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="size-guide-tip">
+        Está entre dois tamanhos? Para um caimento mais justo, escolha o número menor.
+        Para um caimento mais folgado, escolha o número maior.
+      </p>
+    </div>
+  </div>
+  <div class="cart-success-modal" id="cart-success-modal">
+    <div class="cart-success-backdrop" id="cart-success-backdrop"></div>
+
+    <div class="cart-success-content">
+      <button type="button" class="cart-success-close" id="cart-success-close">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <h2 class="cart-success-title">
+        Adicionado com sucesso ao carrinho de compras!
+      </h2>
+
+      <div class="cart-success-body">
+        <div class="cart-success-product">
+          <div class="cart-success-image">
+            <img id="cart-success-img" alt="Tênis adicionado" />
+          </div>
+          <div class="cart-success-info">
+            <p class="cart-success-name" id="cart-success-name"></p>
+            <p class="cart-success-size">
+              Tamanho: <span id="cart-success-size"></span>
+            </p>
+            <p class="cart-success-qty">
+              Quantidade: <span id="cart-success-qty">1</span>
+            </p>
+            <p class="cart-success-price" id="cart-success-price"></p>
+          </div>
+        </div>
+
+        <div class="cart-success-actions">
+          <button
+            type="button"
+            class="cart-success-button cart-success-button-secondary"
+            id="cart-success-continue"
+          >
+            Continuar comprando
+          </button>
+          <button
+            type="button"
+            class="cart-success-button"
+            id="cart-success-view-cart"
+          >
+            Ver carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-social">
+        <span class="footer-title">Redes sociais:</span>
+
+        <a
+          href="https://instagram.com/jrlescovar"
+          class="footer-instagram"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram do jrlescovar"
+        >
+          <svg
+            class="footer-instagram-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="5" />
+            <circle cx="17.3" cy="6.7" r="1.2" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="footer-copy">
+        © 2025 jrlescovar | desenvolvimento academico
+      </p>
+    </div>
+  </footer>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/tenis.js"></script>
+
+</body>
+</html>

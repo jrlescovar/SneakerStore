@@ -1,0 +1,883 @@
+/* ====== RESET BÁSICO ====== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #0b0b0b;
+  color: #ffffff;
+}
+html {
+  background: #0b0b0b;  
+}
+
+
+/* ====== BARRA DE PROMO ====== */
+.top-banner {
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222;
+}
+
+/* ====== HEADER ====== */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #222;
+}
+
+/* Ícones / botões redondos */
+.icon-button {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+/* estado logado no botão de perfil */
+.icon-button.logged-in {
+  position: relative;
+}
+
+.icon-button.logged-in::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2ecc71; /* verdinho online heheh   apos logar na conta gmail  */
+  border: 2px solid #111111;
+}
+
+.material-symbols-outlined {
+  font-size: 26px;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* Logo central */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-mark {
+  width: 16px;
+  height: 16px;
+  border-left: 8px solid #ffffff;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  transform: skewX(-10deg);
+}
+
+.logo-text {
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Ícones à direita */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+/* Lados esquerdo e direito do header */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Faz esquerda e direita “empurrarem” a logo pro centro */
+.header-left,
+.header-right {
+  flex: 1;
+}
+
+.header-right {
+  justify-content: flex-end;
+}
+
+.header-left {
+  justify-content: flex-start;
+}
+
+/* Ajuste na logo pra ficar bem central visualmente */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.logo-text {
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+
+
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-button {
+  margin-right: 8px;
+}
+
+/* Painel lateral */
+.side-menu {
+  position: fixed;
+  top: 6px; 
+  left: 0;
+  height: calc(100vh - 6px);
+  width: 260px;
+  background: #111111;
+  border-right: 1px solid #222;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease-out;
+  z-index: 30;
+  padding: 20px 18px;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  pointer-events: none;
+}
+
+.side-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.side-menu a {
+  color: #888888;
+  text-decoration: none;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.side-menu a:hover {
+  color: #f5f5f5;
+}
+/* ====== BLOCO DE USUÁRIO NO MENU LATERAL ====== */
+
+.side-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #222;
+  margin-bottom: 16px;
+}
+
+.side-profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.side-profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+/* quando tiver foto do Google, esconde o ícone e mostra a fotoo */
+.side-profile-avatar.has-photo .material-symbols-outlined {
+  display: none;
+}
+.side-profile-avatar.has-photo img {
+  display: block;
+}
+
+.side-profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-profile-greeting {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.side-profile-action {
+  margin-top: 2px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #bbbbbb;
+  font-size: 0.78rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.side-profile-action:hover {
+  color: #ffffff;
+}
+
+/* ====== SEÇÕES DO MENU (CATEGORIAS / ADMIN / CENTRAL) ====== */
+
+.side-section {
+  margin-top: 18px;
+}
+
+.side-section-title {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.side-menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.side-menu-list a {
+  font-size: 0.9rem;
+}
+
+/* Esconde o painel do admin por padrão.
+   O JS mostra quando o usuário for admin. */
+.admin-section {
+  display: none;
+}
+
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none; 
+  transition: opacity 0.25s ease-out;
+  z-index: 25;
+}
+/* Estado ABERTO do menu, controlado via JS */
+.side-menu--open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+
+.menu-overlay--visible {
+  opacity: 1;
+  pointer-events: auto; 
+  
+}
+
+/* Quando o checkbox está marcado, abre menu */
+.menu-toggle:checked ~ .side-menu {
+  transform: translateX(0);
+  pointer-events: auto; 
+  
+}
+
+.menu-toggle:checked ~ .menu-overlay {
+  opacity: 1;
+  pointer-events: none; /* garante que mesmo aberto não bloqueie nada */
+}
+
+/* ====== HERO ====== */
+
+.hero {
+  width: 100%;
+}
+
+.hero-image {
+  position: relative;
+  width: 100%;
+  min-height: calc(70vh - 220px);
+  background-image: url("../fotoAnuncioTelaInicial.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* overlay escuro por cima da imagem */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+/* conteúdo do hero */
+.hero-content {
+  position: absolute;
+  bottom: 32px;
+  left: 16px;
+  right: 16px;
+  max-width: 520px;
+  color: #ffffff;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: #ffffff;
+  color: #000000;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 1.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  max-width: 26rem;
+}
+
+.hero-button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+
+.hero-button:hover {
+  background: #f0f0f0;
+}
+  .products-section {
+    padding: 32px 40px 48px;
+  }
+
+  .products-grid {
+    gap: 16px;
+  }
+/* ====== SEÇÃO DE PRODUTOS / TABS ====== */
+
+.products-section {
+  background: #f5f5f5;
+  color: #000000;
+  padding: 24px 16px 40px;
+}
+
+.products-header {
+  display: flex;
+  flex-direction: column;    
+  align-items: flex-start;   
+  gap: 8px;                  
+  margin-bottom: 18px;
+}
+.products-header-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.products-header-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* PAGINAÇÃO DE PRODUTOS */
+
+.products-pagination {
+  margin-top: 32px;
+  display: none;              
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pagination-btn {
+  padding: 12px 32px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.pagination-btn:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+
+.pagination-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pagination-label {
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.pagination-bar {
+  width: 260px;
+  max-width: 100%;
+  height: 2px;
+  background: #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination-bar-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: #000000;
+}
+
+
+
+.products-tabs,
+.products-subfilters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.products-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.products-tabs::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 999px;
+}
+
+
+.products-subfilters::-webkit-scrollbar {
+  height: 4px;
+}
+.products-subfilters::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 999px;
+}
+  
+.products-tab,
+.products-subfilter {
+  border: 1px solid #000000;
+  background: #f5f5f5;
+  color: #000000;
+  padding: 6px 14px;      
+  font-size: 0.9rem; 
+  text-transform: capitalize;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.products-tab--active,
+.products-subfilter--active {
+  background: #000000;
+  color: #ffffff;
+}
+.products-tab {
+  border: 1px solid #000000;
+  background: #f5f5f5;
+  color: #000000;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.products-tab--active {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Ver mais */
+.products-see-more {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  color: #000000;
+}
+
+.products-see-more:hover {
+  text-decoration: underline;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  background: #f5f5f5;
+  cursor: pointer;
+  border: 1px solid #000000;  
+}
+
+.product-image {
+  position: relative;
+  background: #f5f5f5;
+  overflow: hidden;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+    object-position: center 60%;  
+
+}
+
+
+.product-price-original {
+  text-decoration: line-through;
+  color: #777777;
+  font-size: 0.85rem;
+  margin-right: 6px;
+}
+
+.product-price-promo {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+
+.product-fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+
+.product-fav .material-symbols-outlined,
+.product-wishlist-button .material-symbols-outlined {
+  font-size: 26px;
+  color: #000000;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 24;
+  text-shadow: none;
+}
+
+/* Quando estiver curtido: preenchido rosa/vermelho */
+.product-fav.liked .material-symbols-outlined,
+.product-wishlist-button.liked .material-symbols-outlined {
+  color: #e91e63;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 24;
+  text-shadow: none;
+}
+
+
+/* info do produto */
+.product-info {
+  padding: 10px 4px 16px;
+}
+
+.product-price {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.product-category {
+  font-size: 0.8rem;
+  color: #777777;
+}
+/* ====== RODAPÉ GLOBAL ====== */
+
+.site-footer {
+  background: #111111;  
+  color: #ffffff;
+  border-top: 1px solid #222;
+  padding: 12px 40px;
+  font-size: 0.8rem;
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-title {
+  font-size: 0.85rem;
+}
+
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-instagram:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* SVG do Instagram usa a cor atual */
+.footer-instagram-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.footer-instagram-icon rect {
+  stroke-width: 1.5;
+}
+
+.footer-copy {
+  flex: 1;
+  text-align: center;
+  opacity: 0.75;
+}
+.logo-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+.logo-link:focus-visible {
+  outline: 2px solid rgba(255,255,255,.6);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 12px 16px;
+  }
+
+  .site-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-copy {
+    text-align: left;
+  }
+}
+
+/* ====== RESPONSIVO PARA TELAS MAIORES ====== */
+
+@media (min-width: 768px) {
+  .main-header {
+    padding: 12px 40px;
+  }
+
+  .top-banner {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .hero-image {
+    min-height: calc(100vh - 120px);
+  }
+
+  .hero-content {
+    bottom: 60px;
+    left: 60px;
+    right: auto;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+
+}
+@media (max-width: 768px) {
+  .products-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 16px;
+  }
+
+  .pagination-btn {
+    min-width: 130px;
+  }
+
+  .pagination-center {
+    order: 3;
+  }
+}
+@media (min-width: 1024px) {
+  .main-header {
+    padding-inline: 60px;
+  }
+  .hero-image {
+    min-height: 85vh;
+    background-position: center 10%;
+  }
+  .hero-content {
+    bottom: 80px;
+    left: 80px;
+  }
+  .main-header .material-symbols-outlined {
+    font-size: 32px; 
+  }
+
+  .products-section {
+    padding-inline: 60px;
+  }
+  .logo-text { font-size: 1.4rem; letter-spacing: 0.22em; text-transform: uppercase; }
+  .products-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .product-image {
+    height: 230px; 
+  }
+}
+@media (min-width: 768px) {
+  .site-footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-social {
+    justify-self: start;
+  }
+
+  .footer-copy {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    flex: unset; 
+  }
+  .site-footer-inner::after {
+    content: "";
+    grid-column: 3;
+  }
+}
+html, body {
+  overscroll-behavior-y: none; 
+}
+
+html {
+  background: #0b0b0b; 
+}
+body {
+  min-height: 100vh;
+  min-height: 100svh; 
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.site-footer {
+  margin-top: auto;
+  flex-shrink: 0;
+}
